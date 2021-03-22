@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PostController!
+{% endblock %}
+
+{% block body %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Title</td>
+				<td>Action</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for post in posts %}
+				<tr>
+					<td>{{post.id}}</td>
+					<td>
+						<a href={{ path('postshow', {id:post.id} ) }}>{{post.title}}</a>
+					</td>
+					<td>
+						<a class="text-danger" href={{ path('postdelete', {id:post.id} ) }}>Delete</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+
+{% endblock %}

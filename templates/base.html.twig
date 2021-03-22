@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		{% endblock %}
+
+
+	</head>
+	<body>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<a class="navbar-brand" href={{ path('home') }}>Home</a>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href={{ path('custom') }}>Custom</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href={{ path('custom', {name:'Hamza'} ) }}>Hamza</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href={{ path('custom', {name:'Selim'} ) }}>Selim</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			{% block body %}{% endblock %}
+		</div>
+
+		{% block javascripts %}{% endblock %}
+	</body>
+</html>
